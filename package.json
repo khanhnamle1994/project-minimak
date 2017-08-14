@@ -14,7 +14,9 @@
     "redux-devtools-extension": "^2.13.2",
     "redux-orm": "^0.9.4",
     "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.71.4"
   },
   "scripts": {
     "start": "react-scripts start",
