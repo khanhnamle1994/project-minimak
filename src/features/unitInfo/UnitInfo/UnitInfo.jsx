@@ -6,7 +6,12 @@ import {
 } from "semantic-ui-react";
 
 const FACTIONS = [
-    // skip other entries
+    {value : "cc", text : "Capellan Confederation"},
+    {value : "dc", text : "Draconis Combine"},
+    {value : "elh", text : "Eridani Light Horse"},
+    {value : "fs", text : "Federated Suns"},
+    {value : "fwl", text : "Free Worlds League"},
+    {value : "hr", text : "Hansen's Roughriders"},
     {value : "lc", text : "Lyran Commonwealth"},
     {value : "wd", text : "Wolf's Dragoons"},
 ];
@@ -32,5 +37,6 @@ const UnitInfo = () => {
         </Segment>
     );
 }
+
 
 export default UnitInfo;

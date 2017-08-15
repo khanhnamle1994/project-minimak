@@ -1,7 +1,6 @@
-import React, {Component} from "react";
 import {connect} from "react-redux";
 
-import TabBar from "common/components/TabBar";
+import TabBar from "./TabBar";
 
 import {selectCurrentTab} from "./tabSelectors";
 import {selectTab} from "./tabActions";
