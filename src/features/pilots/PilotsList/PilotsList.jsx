@@ -1,4 +1,3 @@
-
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Table} from "semantic-ui-react";
@@ -6,7 +5,7 @@ import {Table} from "semantic-ui-react";
 import PilotsListHeader from "./PilotsListHeader";
 import PilotsListRow from "./PilotsListRow";
 
-import schema from "app/schema";
+import {getEntitiesSession} from "features/entities/entitySelectors";
 
 import {selectPilot} from "../pilotsActions";
 import {selectCurrentPilot} from "../pilotsSelectors";
@@ -15,7 +14,7 @@ import {selectCurrentPilot} from "../pilotsSelectors";
 const mapState = (state) => {
     // Create a Redux-ORM Session from our "entities" slice, which
     // contains the "tables" for each model type
-    const session = schema.from(state.entities);
+    const session = getEntitiesSession(state);
 
     // Retrieve the model class that we need.  Each Session
     // specifically "binds" model classes to itself, so that
