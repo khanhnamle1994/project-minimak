@@ -1,4 +1,3 @@
-
 import React from "react";
 import {connect} from "react-redux";
 import {
@@ -10,6 +9,7 @@ import _ from "lodash";
 
 import {getEntitiesSession} from "features/entities/entitySelectors";
 import {deleteEntity} from "features/entities/entityActions";
+import {showContextMenu} from "features/contextMenus/contextMenuActions";
 
 
 const mapState = (state, ownProps) => {
@@ -46,10 +46,11 @@ const mapState = (state, ownProps) => {
 
 const actions = {
     deleteEntity,
+    showContextMenu,
 };
 
 
-const PilotsListRow = ({pilot={}, onPilotClicked=_.noop, selected, deleteEntity}) => {
+const PilotsListRow = ({pilot={}, onPilotClicked=_.noop, selected, deleteEntity, showContextMenu}) => {
     const {
         id = null,
         name = "",
@@ -68,9 +69,17 @@ const PilotsListRow = ({pilot={}, onPilotClicked=_.noop, selected, deleteEntity}
 
     const onRowClicked = () => onPilotClicked(id);
 
+    const onRowRightClicked = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const {pageX, pageY} = e;
+        showContextMenu(pageX, pageY, "PilotsListItemMenu", {text: pilot.name, pilotId : id});
+    }
+
 
     return (
-        <Table.Row onClick={onRowClicked} active={selected}>
+        <Table.Row onClick={onRowClicked} onContextMenu={onRowRightClicked}  active={selected}>
             <Table.Cell>
                 {name}
             </Table.Cell>
