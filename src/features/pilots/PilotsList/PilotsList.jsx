@@ -19,7 +19,7 @@ const mapState = (state) => {
     // Retrieve the model class that we need.  Each Session
     // specifically "binds" model classes to itself, so that
     // updates to model instances are applied to that session.
-    // These "bound classes" are available as fields in the sesssion.
+    // These "bound classes" are available as fields in the session.
     const {Pilot} = session;
 
     // Query the session for all Pilot instances.
@@ -31,7 +31,7 @@ const mapState = (state) => {
     // for each entry, rather than the plain JS objects.
 
     // Extract a list of IDs for each Pilot entry
-    const pilots = Pilot.all().withModels.map(pilotModel => pilotModel.getId());
+    const pilots = Pilot.all().toModelArray().map(pilotModel => pilotModel.getId());
 
     const currentPilot = selectCurrentPilot(state);
 
