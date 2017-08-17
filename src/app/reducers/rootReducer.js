@@ -8,6 +8,7 @@ import tabReducer from "features/tabs/tabReducer";
 import unitInfoReducer from "features/unitInfo/unitInfoReducer";
 import pilotsReducer from "features/pilots/pilotsReducer";
 import mechsReducer from "features/mechs/mechsReducer";
+import modalsReducer from "features/modals/modalReducer.js";
 
 import entityCrudReducer from "features/entities/entityReducer";
 import editingFeatureReducer from "features/editing/editingReducer";
@@ -19,6 +20,7 @@ const combinedReducer = combineReducers({
     pilots : pilotsReducer,
     mechs : mechsReducer,
     tabs : tabReducer,
+    modals : modalsReducer,
 });
 
 
